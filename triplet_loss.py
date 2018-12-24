@@ -51,7 +51,7 @@ if __name__=='__main__':
     # Paramaters
     training_epochs=1
     display_step=1
-    batch_size=512
+    batch_size=64
     margin=1.0
     img_rows,img_cols=28,28
     (x_train,y_train),(x_test,y_test)=mnist.load_data()
@@ -124,7 +124,7 @@ if __name__=='__main__':
                     
                     avg_cost=sess.run(cost,feed_dict={x:batch_x,y:batch_y})
                     
-                    if not i % 5:
+                    if not i % 10:
                         print ('Epoch #:', epoch ,' global_step', sess.run(global_step),' Batch #: ',i,' loss: ',avg_cost)
                               
             saver.save(sess,"model_logs/model-checkpoint",global_step=global_step, write_meta_graph=True)
